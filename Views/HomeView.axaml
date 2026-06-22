@@ -1,0 +1,34 @@
+    <UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="ECHO.Views.HomeView"
+             Background="#090A0D">
+
+    <Grid RowDefinitions="Auto,*"
+          Margin="24,26,24,26">
+
+        <StackPanel Grid.Row="0" Spacing="6">
+            <TextBlock Text="Tape"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+            <TextBlock Text="Discover the latest post"
+                       FontSize="12"
+                       Foreground="#6F7078"/>
+            <Border Height="1"
+                    Background="#1C1D22"
+                    Margin="0,12,0,0"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="0,22,0,0"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <StackPanel x:Name="FeedPanel"
+                        HorizontalAlignment="Center"
+                        MaxWidth="820"
+                        Spacing="20"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

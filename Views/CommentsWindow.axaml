@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ECHO.Views.CommentsWindow"
+        Width="520"
+        Height="640"
+        Background="#121314"
+        Title="Comments">
+
+    <Grid RowDefinitions="Auto,*,Auto"
+          Margin="24">
+
+        <StackPanel Grid.Row="0" Spacing="8">
+            <TextBlock Text="Comments"
+                       FontSize="22"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+
+            <Border Height="1"
+                    Background="#1F2025"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1"
+                      Margin="0,18,0,18"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="CommentsPanel"
+                        Spacing="14"/>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Spacing="10">
+            <TextBox x:Name="CommentTextBox"
+                     Height="90"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     Watermark="Write a comment..."
+                     VerticalContentAlignment="Center"
+                     Background="#1A1B20"
+                     Foreground="White"
+                     BorderBrush="#2A2C33"/>
+
+            <TextBlock x:Name="ErrorText"
+                       Foreground="#FF6B6B"
+                       FontSize="13"/>
+
+            <Button Content="Send"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    CornerRadius="10"
+                    Width="110"
+                    Height="40"
+                    HorizontalAlignment="Right"
+                    Background="#8B5CF6"
+                    Foreground="White"
+                    Click="SendComment_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

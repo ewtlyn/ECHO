@@ -1,0 +1,99 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ECHO.Views.CreatePostWindow"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        Width="520"
+        Height="640"
+        Background="#121314"
+        Title="Create post"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto"
+          Margin="24">
+
+        <TextBlock Text="Create new post"
+                   FontSize="22"
+                   FontWeight="Bold"
+                   Foreground="White"/>
+
+        <Border Grid.Row="1"
+                Height="1"
+                Margin="0,18,0,18"
+                Background="#1F2025"/>
+
+        <StackPanel Grid.Row="2" Spacing="16">
+
+            <Border Height="260"
+                    Background="#1A1B20"
+                    CornerRadius="18"
+                    BorderBrush="#2A2C33"
+                    BorderThickness="1"
+                    ClipToBounds="True">
+                    <Image x:Name="PostPreviewImage"
+                           Stretch="UniformToFill"/>
+            </Border>
+
+
+            <Button Content="Choose image"
+                    Width="140"
+                    Height="34"
+                    HorizontalAlignment="Left"
+                    Background="#414243"
+                    Foreground="White"
+                    CornerRadius="3"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Left"
+                    FontWeight="Regular"
+                    FontSize="12"
+                    Click="ChooseImage_Click"/>
+
+            <TextBlock Text="Description"
+                       Foreground="White"
+                       FontSize="15"/>
+
+            <TextBox x:Name="DescriptionTextBox"
+                     Height="110"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     Watermark="Write something..."
+                     Background="#1A1B20"
+                     Foreground="White"
+                     BorderBrush="#2A2C33"/>
+            
+            
+            <TextBlock x:Name="ErrorText"
+                       Foreground="#FF6B6B"
+                       FontSize="13"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="12"
+                    Margin="0,18,0,0">
+
+            <Button Content="Cancel"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    CornerRadius="10"
+                    FontWeight="Regular"
+                    Width="100"
+                    Height="40"
+                    Background="Transparent"
+                    BorderBrush="#3A3C45"
+                    Foreground="White"
+                    Click="Cancel_Click"/>
+
+            <Button Content="Publish"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    CornerRadius="10"
+                    FontWeight="Regular"
+                    Width="120"
+                    Height="40"
+                    Background="#8B5CF6"
+                    Foreground="White"
+                    Click="Publish_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

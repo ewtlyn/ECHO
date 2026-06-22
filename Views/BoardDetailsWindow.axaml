@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ECHO.Views.BoardDetailsWindow"
+        Width="1100"
+        Height="760"
+        Background="#0C0D11"
+        Title="Board"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,*"
+          Margin="28,24,28,24">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto"
+              Margin="0,0,0,18">
+            <StackPanel Spacing="6">
+                <TextBlock x:Name="BoardTitleText"
+                           Text="Board"
+                           FontSize="28"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+
+                <TextBlock x:Name="BoardDescriptionText"
+                           Text=""
+                           FontSize="13"
+                           Foreground="#8E919C"
+                           TextWrapping="Wrap"
+                           MaxWidth="760"/>
+
+                <TextBlock x:Name="BoardCountText"
+                           Text=""
+                           FontSize="12"
+                           Foreground="#6F727C"/>
+            </StackPanel>
+
+            <Button Grid.Column="1"
+                    Content="Close"
+                    Width="92"
+                    Height="40"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="#8B5CF6"
+                    BorderBrush="#2A2D36"
+                    BorderThickness="1"
+                    Foreground="White"
+                    CornerRadius="12"
+                    Click="Close_Click"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+            <WrapPanel x:Name="SavedPostsPanel"
+                       HorizontalAlignment="Left"
+                       ItemSpacing="18"
+                       LineSpacing="18"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,520 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="ECHO.Views.AuthStartView"
+        Title="AuthStartView"
+        Width="1280"
+        Height="820"
+        MinWidth="1100"
+        MinHeight="700"
+        Background="#090A0D"
+        d:DesignWidth="1280"
+        d:DesignHeight="820">
+
+    <Grid RowDefinitions="3,*">
+        <Grid Grid.Row="1"
+              ColumnDefinitions="1.1*,0.9*"
+              Margin="56,40,56,40">
+
+            <!-- ЛЕВАЯ ЧАСТЬ -->
+            <Grid Grid.Column="0"
+                  RowDefinitions="Auto,Auto,Auto,Auto,*">
+
+                <TextBlock Text="ECHO"
+                           FontSize="78"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+
+                <TextBlock Grid.Row="1"
+                           Margin="0,18,0,0"
+                           Text="Keep your moments alive."
+                           FontSize="34"
+                           FontWeight="SemiBold"
+                           Foreground="White"/>
+
+                <TextBlock Grid.Row="2"
+                           Margin="0,18,60,0"
+                           Text="Store, organize and share your favorite photos in one place. A modern desktop space for your memories, albums and posts."
+                           FontSize="18"
+                           Foreground="#CFCFD6"
+                           TextWrapping="Wrap"/>
+
+                <StackPanel Grid.Row="3"
+                            Orientation="Horizontal"
+                            Spacing="18"
+                            Margin="0,34,0,0">
+
+                    <Button Width="260"
+                            Height="74"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            Click="CreateAccountButton_Click">
+
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Border CornerRadius="16"
+                                        ClipToBounds="True">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                            <GradientStop Color="#ECECF1" Offset="0"/>
+                                            <GradientStop Color="#BDAAFB" Offset="0.62"/>
+                                            <GradientStop Color="#8B5CF6" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+
+                                    <ContentPresenter Content="{TemplateBinding Content}"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+
+                        <TextBlock Text="Create account"
+                                   FontSize="22"
+                                   FontWeight="Bold"
+                                   Foreground="#090A0D"/>
+                    </Button>
+
+                    <Button Name="LogInButton"
+                            Width="180"
+                            Height="74"
+                            Background="#17181D"
+                            BorderBrush="#2A2A31"
+                            BorderThickness="1"
+                            CornerRadius="16"
+                            Click="LogInButton_Click">
+                        <TextBlock Text="Log in"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="#A970FF"/>
+                    </Button>
+                </StackPanel>
+
+                <WrapPanel Grid.Row="4"
+                           Margin="0,44,40,0"
+                           ItemSpacing="14">
+
+                    <Border Width="190"
+                            Height="108"
+                            Background="#14151A"
+                            BorderBrush="#23232A"
+                            BorderThickness="1"
+                            CornerRadius="16"
+                            Padding="18,16">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Albums"
+                                       FontSize="18"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"/>
+                            <TextBlock Text="Create and organize photo collections."
+                                       FontSize="13"
+                                       Foreground="#9C9CA6"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="190"
+                            Height="108"
+                            Background="#14151A"
+                            BorderBrush="#23232A"
+                            BorderThickness="1"
+                            CornerRadius="16"
+                            Padding="18,16">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Posts"
+                                       FontSize="18"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"/>
+                            <TextBlock Text="Share moments in a clean visual feed."
+                                       FontSize="13"
+                                       Foreground="#9C9CA6"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="190"
+                            Height="108"
+                            Background="#14151A"
+                            BorderBrush="#23232A"
+                            BorderThickness="1"
+                            CornerRadius="16"
+                            Padding="18,16">
+                        <StackPanel Spacing="10">
+                            <TextBlock Text="Profile"
+                                       FontSize="18"
+                                       FontWeight="SemiBold"
+                                       Foreground="White"/>
+                            <TextBlock Text="Keep your personal archive in one place."
+                                       FontSize="13"
+                                       Foreground="#9C9CA6"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </WrapPanel>
+            </Grid>
+
+            <!-- ПРАВАЯ ЧАСТЬ -->
+            <Grid Grid.Column="1"
+                  Margin="34,0,0,0">
+
+                <Border Background="#111217"
+                        BorderBrush="#23232A"
+                        BorderThickness="1"
+                        CornerRadius="28"
+                        Padding="22">
+
+                    <Grid>
+                        <!-- ПРЕВЬЮ -->
+                        <Grid x:Name="PreviewPanel"
+                              RowDefinitions="Auto,Auto,*"
+                              RowSpacing="18">
+
+                            <Grid ColumnDefinitions="Auto,*">
+                                <TextBlock Text="ECHO"
+                                           FontSize="18"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+
+                                <StackPanel Grid.Column="1"
+                                            Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            Spacing="10">
+                                    <Border Width="10"
+                                            Height="10"
+                                            CornerRadius="5"
+                                            Background="#34343B"/>
+                                    <Border Width="10"
+                                            Height="10"
+                                            CornerRadius="5"
+                                            Background="#34343B"/>
+                                    <Border Width="10"
+                                            Height="10"
+                                            CornerRadius="5"
+                                            Background="#8B5CF6"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <StackPanel Grid.Row="1"
+                                        Spacing="6">
+                                <TextBlock Text="Your memories, organized"
+                                           FontSize="24"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"/>
+                                <TextBlock Text="Desktop photo archive with gallery, profile and feed"
+                                           FontSize="14"
+                                           Foreground="#8D8D98"/>
+                            </StackPanel>
+
+                            <Grid Grid.Row="2"
+                                  ColumnDefinitions="150,*"
+                                  ColumnSpacing="18">
+
+                                <Border Grid.Column="0"
+                                        Background="#0D0E12"
+                                        BorderBrush="#1F2026"
+                                        BorderThickness="1"
+                                        CornerRadius="18"
+                                        Padding="16">
+                                    <StackPanel Spacing="14">
+                                        <Border Height="42"
+                                                Background="#342B54"
+                                                CornerRadius="12"/>
+                                        <Border Height="42"
+                                                Background="#15161B"
+                                                CornerRadius="12"/>
+                                        <Border Height="42"
+                                                Background="#15161B"
+                                                CornerRadius="12"/>
+                                        <Border Height="52"
+                                                Margin="0,120,0,0"
+                                                CornerRadius="12">
+                                            <Border.Background>
+                                                <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                                    <GradientStop Color="#ECECF1" Offset="0"/>
+                                                    <GradientStop Color="#BDAAFB" Offset="0.62"/>
+                                                    <GradientStop Color="#8B5CF6" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Grid.Column="1"
+                                            Spacing="16">
+                                    <Border Height="120"
+                                            Background="#17181D"
+                                            BorderBrush="#23232A"
+                                            BorderThickness="1"
+                                            CornerRadius="18"
+                                            Padding="16">
+                                        <Grid ColumnDefinitions="Auto,*"
+                                              RowDefinitions="Auto,*">
+                                            <Border Width="34"
+                                                    Height="34"
+                                                    CornerRadius="17"
+                                                    Background="#D9D9D9"/>
+                                            <StackPanel Grid.Column="1"
+                                                        Margin="10,0,0,0"
+                                                        Spacing="4">
+                                                <Border Width="120"
+                                                        Height="14"
+                                                        Background="#E8E8EC"
+                                                        CornerRadius="7"/>
+                                                <Border Width="72"
+                                                        Height="10"
+                                                        Background="#52525B"
+                                                        CornerRadius="5"/>
+                                            </StackPanel>
+                                            <Border Grid.Row="1"
+                                                    Grid.ColumnSpan="2"
+                                                    Margin="0,14,0,0"
+                                                    Background="#2A2A31"
+                                                    CornerRadius="14"/>
+                                        </Grid>
+                                    </Border>
+
+                                    <Border Height="220"
+                                            Background="#17181D"
+                                            BorderBrush="#23232A"
+                                            BorderThickness="1"
+                                            CornerRadius="18"
+                                            Padding="14">
+                                        <StackPanel Spacing="12">
+                                            <Border Height="120"
+                                                    Background="#2A2A31"
+                                                    CornerRadius="14"/>
+                                            <Border Height="58"
+                                                    Background="#22232A"
+                                                    CornerRadius="12"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <!-- LOGIN -->
+                        <Grid x:Name="LoginPanel"
+                              IsVisible="False"
+                              RowDefinitions="Auto,*">
+
+                            <Button Grid.Row="0"
+                                    Content="← Back"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="#A970FF"
+                                    FontSize="16"
+                                    Click="BackToPreview_Click"/>
+
+                            <StackPanel Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Spacing="14">
+
+                                <TextBlock Text="Log In"
+                                           FontSize="38"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+                                
+                                <TextBlock Text="Welcome back. Sign in to continue."
+                                           FontSize="14"
+                                           Foreground="#8D8D98"
+                                           Margin="0,0,0,8"/>
+
+                                <TextBlock Name="LoginErrorText"
+                                           Foreground="#FF6B6B"
+                                           FontSize="14"
+                                           Margin="0,8,0,0"
+                                           TextWrapping="Wrap"/>
+                                
+                                <TextBlock Text="Username"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"/>
+
+                                <TextBox x:Name="LoginUsernameTextBox"
+                                         Height="52"
+                                         Background="#17181D"
+                                         Foreground="White"
+                                         BorderBrush="#2A2A31"
+                                         BorderThickness="1"
+                                         VerticalContentAlignment="Center"
+                                         Watermark="Enter username"/>
+
+                                <TextBlock Text="Password"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"
+                                           Margin="0,6,0,0"/>
+
+                                <TextBox x:Name="LoginPasswordTextBox"
+                                         Height="52"
+                                         Background="#17181D"
+                                         Foreground="White"
+                                         BorderBrush="#2A2A31"
+                                         BorderThickness="1"
+                                         PasswordChar="*"
+                                         VerticalContentAlignment="Center"
+                                         Watermark="Enter password"/>
+
+                                <Button Height="58"
+                                        Width="300"
+                                        Margin="0,12,0,0"
+                                        HorizontalAlignment="Center"
+                                        Click="LoginSubmit_Click">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <Border CornerRadius="16"
+                                                    ClipToBounds="True">
+                                                <Border.Background>
+                                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                                        <GradientStop Color="#ECECF1" Offset="0"/>
+                                                        <GradientStop Color="#BDAAFB" Offset="0.62"/>
+                                                        <GradientStop Color="#8B5CF6" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+
+                                                <ContentPresenter Content="{TemplateBinding Content}"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+
+                                    <TextBlock Text="Log in"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               Foreground="#17181D"/>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- REGISTER -->
+                        <Grid x:Name="RegisterPanel"
+                              IsVisible="False"
+                              RowDefinitions="Auto,*">
+
+                            <Button Grid.Row="0"
+                                    Content="← Back"
+                                    HorizontalAlignment="Left"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Foreground="#A970FF"
+                                    FontSize="16"
+                                    Click="BackToPreview_Click"/>
+
+                            <StackPanel Grid.Row="1"
+                                        VerticalAlignment="Center"
+                                        Spacing="14">
+
+                                <TextBlock Text="Create account"
+                                           FontSize="38"
+                                           FontWeight="Bold"
+                                           Foreground="White"/>
+
+                                <TextBlock Text="Create your profile to start using ECHO."
+                                           FontSize="14"
+                                           Foreground="#8D8D98"
+                                           Margin="0,0,0,8"/>
+                                
+                                <StackPanel HorizontalAlignment="Center"
+                                            Spacing="10"
+                                            Margin="0,0,0,10">
+
+                                    <Border Width="110"
+                                            Height="110"
+                                            CornerRadius="55"
+                                            ClipToBounds="True"
+                                            Background="#1A1B21"
+                                            BorderBrush="#2A2A31"
+                                            BorderThickness="1">
+
+                                        <Image x:Name="AvatarPreviewImage"
+                                               Stretch="UniformToFill"/>
+                                    </Border>
+
+                                    <Button Content="Choose photo"
+                                            HorizontalAlignment="Center"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Foreground="#A970FF"
+                                            FontSize="15"
+                                            Click="ChooseAvatar_Click"/>
+                                </StackPanel>
+
+                                <TextBlock Text="Username"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"/>
+
+                                <TextBox x:Name="RegisterUsernameTextBox"
+                                         Height="52"
+                                         Background="#17181D"
+                                         Foreground="White"
+                                         BorderBrush="#2A2A31"
+                                         BorderThickness="1"
+                                         VerticalContentAlignment="Center"
+                                         Watermark="Create username"/>
+
+                                <TextBlock Name="RegisterErrorText"
+                                           Foreground="#FF6B6B"
+                                           FontSize="14"
+                                           Margin="0,8,0,0"
+                                           TextWrapping="Wrap"/>
+                                
+                                <TextBlock Text="Password"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="White"
+                                           Margin="0,6,0,0"/>
+
+                                <TextBox x:Name="RegisterPasswordTextBox"
+                                         Height="52"
+                                         Background="#17181D"
+                                         Foreground="White"
+                                         BorderBrush="#2A2A31"
+                                         BorderThickness="1"
+                                         VerticalContentAlignment="Center"
+                                         PasswordChar="*"
+                                         Watermark="Create password"/>
+
+                                <Button Height="58"
+                                        Width="300"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,12,0,0"
+                                        Click="RegisterSubmit_Click">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <Border CornerRadius="16"
+                                                    ClipToBounds="True">
+                                                <Border.Background>
+                                                    <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+                                                        <GradientStop Color="#ECECF1" Offset="0"/>
+                                                        <GradientStop Color="#BDAAFB" Offset="0.62"/>
+                                                        <GradientStop Color="#8B5CF6" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+
+                                                <ContentPresenter Content="{TemplateBinding Content}"
+                                                                  HorizontalAlignment="Center"
+                                                                  VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+
+                                    <TextBlock Text="Sign up"
+                                               FontSize="18"
+                                               FontWeight="Bold"
+                                               Foreground="White"/>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

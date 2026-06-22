@@ -1,0 +1,16 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="ECHO.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+             <Application.Styles>
+                 <Style Selector="TextBlock">
+                     <Setter Property="FontFamily" Value="avares://ECHO/Assets/Fonts/#Inter"/>
+                 </Style>
+                 
+                 <FluentTheme />
+                 <materialIcons:MaterialIconStyles />
+             </Application.Styles>
+</Application>

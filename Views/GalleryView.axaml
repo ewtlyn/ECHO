@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ECHO.Views.GalleryView"
+             Background="#090A0D">
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="26,26,26,26">
+
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+            <StackPanel Spacing="6">
+                <TextBlock Text="Gallery"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"/>
+
+                <TextBlock Text="Your boards and moodboards"
+                           FontSize="12"
+                           Foreground="#777984"/>
+            </StackPanel>
+
+            <Button Grid.Column="1"
+                    Content="+ New board"
+                    Height="44"
+                    Padding="18,0"
+                    Background="#8B5CF6"
+                    VerticalContentAlignment="Center"
+                    BorderBrush="#343241"
+                    BorderThickness="1"
+                    Foreground="White"
+                    CornerRadius="10"
+                    Click="OpenCreateBoardPanel_Click"/>
+        </Grid>
+
+        <Border Grid.Row="1"
+                x:Name="CreateBoardPanel"
+                IsVisible="False"
+                Margin="0,22,0,0"
+                Padding="18"
+                Background="#13141A"
+                BorderBrush="#23242B"
+                BorderThickness="1"
+                CornerRadius="18">
+
+            <StackPanel Spacing="12">
+                <TextBlock Text="Create new board"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="White"/>
+
+                <TextBox x:Name="BoardTitleTextBox"
+                         Watermark="Board title"
+                         Background="#1A1B21"
+                         BorderBrush="#2C2D34"
+                         Foreground="White"/>
+
+                <TextBox x:Name="BoardDescriptionTextBox"
+                         Height="82"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         Watermark="Description"
+                         Background="#1A1B21"
+                         BorderBrush="#2C2D34"
+                         Foreground="White"/>
+
+                <TextBlock x:Name="CreateBoardErrorText"
+                           FontSize="12"
+                           Foreground="#FF7272"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Spacing="10">
+                    <Button Content="Cancel"
+                            Height="38"
+                            Padding="16,0"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="White"
+                            BorderBrush="#34363F"
+                            BorderThickness="1"
+                            Foreground="#090A0D"
+                            CornerRadius="12"
+                            Click="CancelCreateBoard_Click"/>
+
+                    <Button Content="Create"
+                            Height="38"
+                            Padding="18,0"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Background="#7C5CFA"
+                            Foreground="White"
+                            BorderThickness="0"
+                            CornerRadius="12"
+                            Click="CreateBoard_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="2"
+                      Margin="0,24,0,0"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+
+            <WrapPanel x:Name="BoardsPanel"
+                       Orientation="Horizontal"
+                       HorizontalAlignment="Left"
+                       ItemSpacing="18"
+                       LineSpacing="18"/>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
