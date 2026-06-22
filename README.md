@@ -1,8 +1,9 @@
 Десктопное приложение для хранения и обмена фотографиями с социальными функциями: лента публикаций, тематические доски, лайки и комментарии.
 
-<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/898b6d68-e5ba-4a6a-a945-6bf7fff4d48e" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ea0c5874-42cf-4268-9151-5c0a15bc22d9" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ae36aef7-4612-4761-bd20-dc1f33d36523" /># ECHO
-<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/b57bde01-6a9b-425d-bbba-deb9fb08a84f" />
-
+![Platform](https://img.shields.io/badge/platform-Desktop-7C3AED)
+![C#](https://img.shields.io/badge/C%23-.NET%208-512BD4)
+![Avalonia](https://img.shields.io/badge/UI-Avalonia-blueviolet)
+![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-336791)
 
 ---
 
@@ -36,6 +37,11 @@ ECHO — это десктопный аналог Pinterest/Instagram, где п
 **База данных (схема ECHO):** `Users`, `Posts`, `Likes`, `Comments`, `Boards`, `BoardPosts`, `Albums`, `AlbumPosts` — связи многие-ко-многим между досками и постами через `BoardPosts`, уникальный составной ключ `(UserID, PostID)` в таблице `Likes` исключает дублирование лайков.
 
 **Состояние сессии** хранится в статическом классе `UserSession` (`CurrentUser`, `Logout()`), что даёт доступ к данным авторизованного пользователя из любой точки приложения без передачи через конструкторы.
+
+## Скриншоты
+<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/898b6d68-e5ba-4a6a-a945-6bf7fff4d48e" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ea0c5874-42cf-4268-9151-5c0a15bc22d9" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ae36aef7-4612-4761-bd20-dc1f33d36523" /># ECHO
+<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/b57bde01-6a9b-425d-bbba-deb9fb08a84f" />
+
 
 ## Запуск локально
 
