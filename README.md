@@ -1,10 +1,6 @@
-<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/898b6d68-e5ba-4a6a-a945-6bf7fff4d48e" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ea0c5874-42cf-4268-9151-5c0a15bc22d9" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ae36aef7-4612-4761-bd20-dc1f33d36523" /># ECHO
-
 Десктопное приложение для хранения и обмена фотографиями с социальными функциями: лента публикаций, тематические доски, лайки и комментарии.
 
-![Uploading СОЗДАНИЕ АККАУНТА.png…]()
-![Uploading ПРОФИЛЬ.png…]()
-![Uploading ГАЛЕРЕЯ АЛЬБОМОВ.png…]()
+<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/898b6d68-e5ba-4a6a-a945-6bf7fff4d48e" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ea0c5874-42cf-4268-9151-5c0a15bc22d9" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ae36aef7-4612-4761-bd20-dc1f33d36523" /># ECHO
 <img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/b57bde01-6a9b-425d-bbba-deb9fb08a84f" />
 
 
