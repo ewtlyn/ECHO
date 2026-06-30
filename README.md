@@ -22,28 +22,11 @@ ECHO is a desktop counterpart to Pinterest/Instagram, where users publish photos
 - **Architecture:** Views/Windows split by single responsibility, navigation through swapping `Content` inside a `ContentControl`
 
 ## Screenshots
+<img width="1440" height="900" alt="СОЗДАНИЕ АККАУНТА" src="https://github.com/user-attachments/assets/18f9e01c-b478-4df1-94f9-8fb71d80c56a" />
+<img width="1440" height="900" alt="ПРОФИЛЬ" src="https://github.com/user-attachments/assets/bf099500-3022-4ef3-bab4-0b3ff288d534" />
+<img width="1440" height="900" alt="ГАЛЕРЕЯ АЛЬБОМОВ" src="https://github.com/user-attachments/assets/63e55c73-78fe-4755-b8fa-ed269f5e92ec" />
+<img width="1095" height="784" alt="АЛЬБОМ С ФОТО" src="https://github.com/user-attachments/assets/ff24c464-b8a8-41cb-9d65-a13ccf990749" />
 
-<table>
-  <tr>
-    <td align="center"><b>Feed (HomeView)</b></td>
-    <td align="center"><b>Boards gallery (GalleryView)</b></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/![Uploading СОЗДАНИЕ АККАУНТА.png…]()
-" width="400"/></td>
-    <td><img src="screenshots/gallery.png" width="400"/></td>
-  </tr>
-  <tr>
-    <td align="center"><b>User profile (ProfileView)</b></td>
-    <td align="center"><b>Creating a post (CreatePostWindow)</b></td>
-  </tr>
-  <tr>
-    <td><img src="screenshots/profile.png" width="400"/></td>
-    <td><img src="screenshots/create_post.png" width="400"/></td>
-  </tr>
-</table>
-
-> Screenshots live in the `screenshots/` folder. Replace the files with your own — the filenames can stay the same.
 
 ## Architecture
 
