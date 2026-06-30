@@ -29,7 +29,8 @@ ECHO is a desktop counterpart to Pinterest/Instagram, where users publish photos
     <td align="center"><b>Boards gallery (GalleryView)</b></td>
   </tr>
   <tr>
-    <td><img src="screenshots/home.png" width="400"/></td>
+    <td><img src="screenshots/![Uploading СОЗДАНИЕ АККАУНТА.png…]()
+" width="400"/></td>
     <td><img src="screenshots/gallery.png" width="400"/></td>
   </tr>
   <tr>
