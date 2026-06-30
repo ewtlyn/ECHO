@@ -1,4 +1,6 @@
-Десктопное приложение для хранения и обмена фотографиями с социальными функциями: лента публикаций, тематические доски, лайки и комментарии.
+# ECHO
+
+A desktop application for storing and sharing photos with social features: a public feed, themed boards, likes, and comments.
 
 ![Platform](https://img.shields.io/badge/platform-Desktop-7C3AED)
 ![C#](https://img.shields.io/badge/C%23-.NET%208-512BD4)
@@ -7,69 +9,87 @@
 
 ---
 
-## О проекте
+## About
 
-ECHO — это десктопный аналог Pinterest/Instagram, где пользователи публикуют фотографии, сохраняют их на тематические доски, ставят лайки и оставляют комментарии. Интерфейс выполнен в тёмной цветовой схеме с акцентным фиолетовым цветом — фотографии остаются в центре внимания, а глаза не устают при долгом просмотре галереи.
+ECHO is a desktop counterpart to Pinterest/Instagram, where users publish photos, save them to themed boards, like posts, and leave comments. The interface uses a dark color scheme with a purple accent — photos stay front and center, and the eyes don't tire during long browsing sessions.
 
-## Стек технологий
+## Tech Stack
 
-- **Язык:** C# (.NET 8)
+- **Language:** C# (.NET 8)
 - **UI:** Avalonia UI
 - **ORM:** Entity Framework Core
-- **БД:** PostgreSQL (провайдер Npgsql)
-- **Архитектура:** разделение Views/Windows по принципу "одно окно — одна ответственность", навигация через переключение `Content` в `ContentControl`
+- **Database:** PostgreSQL (via the Npgsql provider)
+- **Architecture:** Views/Windows split by single responsibility, navigation through swapping `Content` inside a `ContentControl`
 
-## Архитектура
+## Screenshots
 
-Проект организован по принципу разделения ответственности: каждое окно/представление состоит из файла разметки (`.axaml`) и файла кода (`.axaml.cs`).
+<table>
+  <tr>
+    <td align="center"><b>Feed (HomeView)</b></td>
+    <td align="center"><b>Boards gallery (GalleryView)</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/home.png" width="400"/></td>
+    <td><img src="screenshots/gallery.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>User profile (ProfileView)</b></td>
+    <td align="center"><b>Creating a post (CreatePostWindow)</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/profile.png" width="400"/></td>
+    <td><img src="screenshots/create_post.png" width="400"/></td>
+  </tr>
+</table>
 
-**Основные представления:**
-- `HomeView` — лента публикаций всех пользователей с лайками, комментариями и сохранением в доску
-- `GalleryView` — галерея тематических досок с превью изображений
-- `ProfileView` — личный профиль, создание постов, выход из аккаунта
+> Screenshots live in the `screenshots/` folder. Replace the files with your own — the filenames can stay the same.
 
-**Диалоговые окна:**
-- `CommentsWindow` — просмотр и добавление комментариев к публикации
-- `CreatePostWindow` — создание новой публикации
-- `SaveToBoardWindow` — сохранение публикации на доску
-- `BoardDetailsWindow` — детальный просмотр доски
+## Architecture
 
-**База данных (схема ECHO):** `Users`, `Posts`, `Likes`, `Comments`, `Boards`, `BoardPosts`, `Albums`, `AlbumPosts` — связи многие-ко-многим между досками и постами через `BoardPosts`, уникальный составной ключ `(UserID, PostID)` в таблице `Likes` исключает дублирование лайков.
+The project follows separation of concerns: every window/view consists of a markup file (`.axaml`) and a code-behind file (`.axaml.cs`).
 
-**Состояние сессии** хранится в статическом классе `UserSession` (`CurrentUser`, `Logout()`), что даёт доступ к данным авторизованного пользователя из любой точки приложения без передачи через конструкторы.
+**Main views:**
+- `HomeView` — feed of posts from all users with likes, comments, and saving to a board
+- `GalleryView` — gallery of themed boards with image previews
+- `ProfileView` — personal profile, post creation, sign-out
 
-## Скриншоты
-<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/898b6d68-e5ba-4a6a-a945-6bf7fff4d48e" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ea0c5874-42cf-4268-9151-5c0a15bc22d9" /><img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/ae36aef7-4612-4761-bd20-dc1f33d36523" /># ECHO
-<img width="1440" height="900" alt="ЧУЖИЕ ПОСТЫ" src="https://github.com/user-attachments/assets/b57bde01-6a9b-425d-bbba-deb9fb08a84f" />
+**Dialog windows:**
+- `CommentsWindow` — viewing and adding comments to a post
+- `CreatePostWindow` — creating a new post
+- `SaveToBoardWindow` — saving a post to a board
+- `BoardDetailsWindow` — detailed view of a board
 
+**Database (ECHO schema):** `Users`, `Posts`, `Likes`, `Comments`, `Boards`, `BoardPosts`, `Albums`, `AlbumPosts` — many-to-many relations between boards and posts through `BoardPosts`, a unique composite key `(UserID, PostID)` on the `Likes` table prevents duplicate likes.
 
-## Запуск локально
+**Session state** is stored in a static `UserSession` class (`CurrentUser`, `Logout()`), giving access to the authenticated user's data from anywhere in the app without passing it through constructors.
+
+## Running locally
 
 ```bash
-git clone https://github.com/<твой-username>/echo.git
+git clone https://github.com/<your-username>/echo.git
 cd echo
 ```
 
-1. Создай базу PostgreSQL и накати схему из `database/schema.sql` 
-2. Укажи строку подключения в `PostgresContext`
-3. Восстанови зависимости и запусти:
+1. Create a PostgreSQL database and apply the schema from `database/schema.sql` (if present)
+2. Set the connection string in `appsettings.json` or `PostgresContext`
+3. Restore dependencies and run:
 
 ```bash
 dotnet restore
 dotnet run
 ```
 
-## Возможности
+## Features
 
-- Лента публикаций с лайками и комментариями
-- Тематические доски для сохранения постов
-- Профиль пользователя с собственными публикациями
-- Авторизация и регистрация
+- Post feed with likes and comments
+- Themed boards for saving posts
+- User profile with personal posts
+- Authentication and registration
 
-## Планы по развитию
+## Roadmap
 
-- Поиск по публикациям
-- Система подписок
-- Теги
-- Облачное хранение медиа
-- Пагинация ленты
+- Search across posts
+- Following system
+- Tags
+- Cloud media storage
+- Feed pagination
